@@ -81,8 +81,8 @@ export interface Params {
 
 export const DEFAULTS: Params = {
   background: "#fbf3e4",
-  strand1: "#8e8471",
-  strand2: "#8e8471",
+  strand1: "#002a27",
+  strand2: "#002a27",
   beadsMatchBackbone: true,
   beadColor: "#efe7d8",
   baseA: "#4caf6e",
@@ -136,7 +136,7 @@ export const DEFAULTS: Params = {
   pairsPerTurn: 10.5,
   groove: 2.4,
   backboneRadius: 0.19,
-  showBeads: true,
+  showBeads: false,
   beadRadius: 0.24,
   rungRadius: 0.14,
   highlightRungRadius: 0.19,
@@ -150,7 +150,13 @@ export const DEFAULTS: Params = {
 
 export const PRESETS: Record<string, Partial<Params>> = {
   "Wiki (current)": {},
+  "Taupe with beads": {
+    strand1: "#8e8471",
+    strand2: "#8e8471",
+    showBeads: true,
+  },
   "Satin, light beads": {
+    showBeads: true,
     strand1: "#a89b86",
     strand2: "#a89b86",
     beadsMatchBackbone: false,
