@@ -29,24 +29,6 @@ body {
   cursor: grabbing;
 }
 
-.intro {
-  position: fixed;
-  left: 20px;
-  top: 16px;
-  max-width: min(420px, calc(100% - 380px));
-  pointer-events: none;
-}
-.intro h1 {
-  margin: 0 0 6px;
-  font: 700 1.6rem Georgia, "Times New Roman", serif;
-}
-.intro p {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: var(--muted);
-}
-
 #toast {
   position: fixed;
   left: 50%;
@@ -65,8 +47,9 @@ body {
   transform: translate(-50%, 0);
 }
 
-/* lil-gui in the site's paper colors */
-.lil-gui.root {
+/* lil-gui in the site's paper colors. Every folder is its own .lil-gui and
+   re-declares the defaults, so the theme has to target all of them. */
+body .lil-gui {
   --background-color: #fffcf5;
   --widget-color: #f1e8d6;
   --hover-color: #e9ddc6;
@@ -78,17 +61,16 @@ body {
   --title-text-color: #3b3226;
   --font-size: 12px;
   --input-font-size: 12px;
+}
+body .lil-gui.root {
   border: 1.5px solid #3b3226;
   max-height: calc(100vh - 16px);
 }
+body .lil-gui .controller.disabled {
+  opacity: 0.45;
+}
 
 @media (max-width: 700px) {
-  .intro {
-    max-width: calc(100% - 40px);
-  }
-  .intro p {
-    display: none;
-  }
   .lil-gui.root {
     top: auto !important;
     bottom: 0;
