@@ -241,7 +241,9 @@ export class HelixStudio {
       const centre = p1.clone().lerp(p2, 0.5);
       const r = highlight ? p.highlightRungRadius : p.rungRadius;
       this.rung(rodGeo, p1, centre, r, base, highlight);
-      this.rung(rodGeo, centre, p2, r, PAIR[base], highlight);
+      // each half runs from its own backbone toward the middle, so the gap
+      // opens at the centre and both halves stay attached to their strands
+      this.rung(rodGeo, p2, centre, r, PAIR[base], highlight);
     }
   }
 
